@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание тренировки</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="~/css/TrainingPrograms/programs.css">
+    <link rel="stylesheet" href="~/css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js"></script>
+    <script src="~/js/programs.js" defer></script>
+    <script src="~/js/TrainingProgram/training.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <form method="post">
+                <div class="programs">
+                    <div class="programs-create">
+                        <h2>Создание и редактирование видео тренировочных программ</h2>
+                        <h3>Название тренировки</h3>
+                        <div class="autorization-input top">
+                            <div class="autorization-field">
+                                <input name="nameTraining" type="text" value="@(Model.Training?.NameTraining ?? "")" data-required="true" data-max-length="50" data-min-length="2">
+                            </div>
+                        </div>
+                        <h3>Краткое описание тренировки</h3>
+                        <div class="autorization-input">
+                            <div class="autorization-field">
+                                <textarea name="shortDescription" data-required="true" data-max-length="1000" data-min-length="10" rows="4">@Model.Training?.DescriptionTraining</textarea>
+                            </div>
+                        </div>
+                        <h3>Ссылка на видео (YouTube)</h3>
+                        <div class="autorization-input top">
+                            <div class="autorization-field">
+                                <input name="linkVideoYouTube" type="text" value="@(Model.Training?.LinkVideo ?? "")" data-required="true" data-max-length="150" data-min-length="2">
+                            </div>
+                        </div>
+                        <h3>Категория тренировочной программы</h3>
+                        <div class="autorization-input top">
+                            <div class="box">
+                                <select name="categoryTrainingProgramId"  data-required="true">
+                                    @foreach (var category in Model.TrainingCategories)
+                                    {
+                                        if (Model.Training != null && Model.Training.TrainingCategoryId == category.IdTrainingCategory)
+                                        {
+                                            <option value="@category.IdTrainingCategory" selected>@category.NameTrainingCategory</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@category.IdTrainingCategory">@category.NameTrainingCategory</option>
+                                        }
+                                    }
+                                </select>
+
+                            </div>
+                        </div>
+                        <h3>Ссылка на обложку видео тренировки</h3>
+                        <div class="autorization-input top">
+                            <div class="autorization-field">
+                                <input name="imageVideoTraining" value="@(Model.Training?.Photo_Training_Video ?? "")" type="text" data-required="true" data-max-length="50" data-min-length="2">
+                            </div>
+                        </div>
+                        <div class="photo">
+                            <div class="photo-program">
+                                <img id="imageTrainingVideo" src="@(Model.Training?.Photo_Training_Video ?? "../../img/articles/articles.svg")" />
+                            </div>
+                        </div>
+                        <input type="hidden" name="trainingId" value="@Model.Training?.IdTraining" />
+                        <div class="programs-button">
+                            <button type="submit" class="PD__button" formaction="@Url.Action(Model.Training?.IdTraining != null ? "UpdateTraining" : "CreateNewTrainingVideo", "trainingPrograms")">
+                                Сохранить и опубликовать тренировку
+                            </button>
+                        </div>
+                        <div class="programs-button">
+                            <button type="submit" class="PD__button" formaction="@Url.Action("CreateTrainingVideoAndArchive", "trainingPrograms")">Сохранить в архив</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+</html>

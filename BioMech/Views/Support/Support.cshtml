@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поддержка</title>
+    <link rel="stylesheet" href="../css/Authentication/entrance.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/clickActive.js" defer></script>
+    <script src="~/js/validation.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="modal" id="confirmMassage" style="display:none;">
+            <div>
+                <p class="modalCenter">Ваше сообщение отправлено в поддержку, ожидайте ответа на почту</p>
+            </div>
+        </div>
+        @Html.Partial("_Header")
+        <div class="autorization">
+            <img src="../img/authorization/Untitled 2.png" class="auto__img" alt="">
+            <div class="autorization__block">
+                <h3 class="h-brown h-left">Свяжитесь с нами</h3>
+                <form class="form" method="post" asp-controller="Support" asp-action="SendSupportRequest" id="add-form">
+                    <div class="autorization-input top">
+                        <div class="autorization-field">
+                            <input data-required="true" data-max-length="50" data-min-length="2" name="userName" type="text" placeholder="Имя">
+                        </div>
+                    </div>
+                    <div class="autorization-input">
+                        <div class="autorization-field">
+                            <input data-email="true" name="userEmail" type="text" placeholder="Элетронная почта">
+                        </div>
+                    </div>
+                    <div class="autorization-input">
+                        <div class="autorization-field">
+                        <textarea data-required="true" data-max-length="250" data-min-length="10" name="userMessage" rows="8" placeholder="Ваше сообщение"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="autorization-btn" id="supportMassage">Отправить сообщение</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+
+</html>

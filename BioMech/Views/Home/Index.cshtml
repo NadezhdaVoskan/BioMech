@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Home/index.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js" defer></script>
+    <script src="~/js/Home/home.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="head">
+            @Html.Partial("_Header")
+        </div>
+        <div class="definitions">
+            <div class="container">
+                <h2 class="mobile-bio-h2">Анализ и коррекция <br>биомеханики</h2>
+                <div class="biomechanics">
+                    <div class="bio">
+                        <h2>Анализ и коррекция <br>биомеханики</h2>
+                        <p class="text-20-bold top">
+                            Биомеханика — ключевая наука, изучающая движения живых существ, и она
+                            оказывает влияние на множество аспектов нашей повседневной активности.
+                        </p>
+                        <p class="text-20-bold">
+                            Биомеханика улучшает спортивные достижения, способствует здоровью и
+                            комфорту в
+                            медицинской сфере, а также она применяется в повседневной жизни для создания удобных
+                            и эргономичных условий.
+                        </p>
+                    </div>
+                    <div class="biomech__img">
+                        <img src="img/index/Робот для главной страницы.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="indent">
+                <h2 class="h-after h-indent element-animation">Возможности, которые мы <br>предлагаем</h2>
+                <div class="items">
+                    <div class="item element-animation">
+                        <img src="img/index/image1.png" alt="">
+                        <h3>Научные статьи</h3>
+                        <p class="item__text">Изучи науку биомеханики с нашими увлекательными статьями</p>
+                    </div>
+                    <div class="item element-animation">
+                        <img src="img/index/image3.png" alt="">
+                        <h3>Тренировочные <br> программы</h3>
+                        <p class="item__text">
+                            Выбери и занимайся по тренировочным программам, разработанным с учетом
+                            конкретных
+                            проблем
+                        </p>
+                    </div>
+                    <div class="item element-animation">
+                        <img src="img/index/image4.png" alt="">
+                        <h3>Диагностика</h3>
+                        <p class="item__text">Проверь возможные проблемы с телом и биомеханикой</p>
+                    </div>
+                    <div class="item element-animation">
+                        <img src="img/index/image5.png" alt="">
+                        <h3>Рекомендации</h3>
+                        <p class="item__text">
+                            Получи индивидуальные рекомендации и упражнения для исправления конкретных
+                            проблем
+                        </p>
+                    </div>
+                    <div class="item element-animation">
+                        <img src="img/index/image6.png" alt="">
+                        <h3>Журнал <br> тренировок</h3>
+                        <p class="item__text">Веди журнал тренировок, записывай свои успехи и изменения</p>
+                    </div>
+                    <div class="item element-animation">
+                        <img src="img/index/graph.png" alt="">
+                        <h3>Отслеживание<br> самочувствия</h3>
+                        <p class="item__text">
+                            Ознакомься с результатами тренировок и состоянием здоровья в течение процесса с помощью графиков и диаграмм
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="diagnostics element-animation">
+                <img class="dia__img" src="img/index/Умный робот.PNG" alt="">
+                <div class="dia">
+                    <h2>Умная диагностика</h2>
+                    <p class="dia__text">
+                        Мы предлагаем инновационный подход к вашему здоровью и фитнесу. Просто
+                        загрузите свои фотографии, и наша передовая система машинного обучения проанализирует их, выявит
+                        потенциальные проблемы и предоставит персонализированные рекомендации. Наши тренировочные программы
+                        разработаны для эффективного решения выявленных задач, помогая вам достичь желаемых результатов.
+                    </p>
+                    <form action="#" method="get" target="_blank">
+                        <button asp-controller="diagnostics" asp-action="DiagnosticsDescription" type="submit" class="more">Узнать подробнее<img src="img/icon.png" alt=""></button>
+                    </form>
+                </div>
+            </div>
+            <div class="indent element-animation">
+                <h2 class="h-indent">Отзывы о нас</h2>
+                <div class="feedback items">
+                    <div class="item element-animation">
+                        <img src="img/index/ava1.png" alt="">
+                        <h3>Вероника Лавринова</h3>
+                        <p class="item__text">
+                            Понятный и удобный интерфейс, что является несомненным плюсом, весьма удобно
+                            пользоваться, рекомендации и статьи своевременны и полезны, а тренировочные программы вместе с
+                            журналом тренировок очень помогли!
+                        </p>
+                    </div>
+                    <div class="item element-animation">
+                        <img src="img/index/ava2.png" alt="">
+                        <h3>Людмила Рожковская</h3>
+                        <p class="item__text">
+                            Очень интересные статьи по необходимым темам. Программы тренировок интересные,
+                            делаю с удовольствием!
+                            Делайте эти упражнения каждый день и спина болеть не будет!!!
+                        </p>
+                    </div>
+                    <div class="item element-animation">
+                        <img src="img/index/ava3.png" alt="">
+                        <h3>Полина Савицкая</h3>
+                        <p class="item__text">
+                            Очень простое и понятное объяснение, как делать диагностику. Выявила несколько
+                            проблем и мне предложили варианты их исправления. Тренируюсь с удовольствием по представленным
+                            программам!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    @Html.Partial("_Footer")
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+﻿@model ArticlesModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание и редактирование категории статьи</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Articles/articles.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/validation.js" defer></script>
+    <script src="~/js/Articles/articlescategory.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="modal" id="confirmModal" style="display:none;">
+            <div>
+                <p>Вы уверены, что хотите удалить данную фотографию?</p>
+                <div class="modalButton">
+                    <button id="yesBtn" class="button">Да</button>
+                    <button id="noBtn" class="button">Нет</button>
+                </div>
+            </div>
+        </div>
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="articles">
+                <div class="categories-create">
+                    <h2>Создание категории</h2>
+                    <form action="/articles/CreateNewArticleCategory" method="post">
+                    <h3>Название категории</h3>
+                    <div class="autorization-input top">
+                        <div class="autorization-field">
+                                <input name="nameArticleCategory" data-required="true" data-max-length="50" data-min-length="2" type="text">
+                        </div>
+                    </div>
+                    <div class="categories-button">
+                        <button type="submit" class="PD__button">Добавить категорию</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="articles">
+                <div class="categories-editing">
+                    <h2>Редактирование категории</h2>
+                      <form action="/articles/UpdateArticleCategory" method="post">
+                    <h3>Категория</h3>
+                    <div class="autorization-input top">
+                            <div class="box">
+                                <select name="categoryArticleId" id="categoryArticleId" required data-required="true">
+                                    @foreach (var category in Model.ArticlesCategory)
+                                    {
+                                        <option value="@category.IdArticleCategory">@category.NameArticleCategory</option>
+                                    }
+                                </select>
+                            </div>
+                    </div>
+                    <h3>Изменное название категории</h3>
+                    <div class="autorization-input top">
+                        <div class="autorization-field">
+                                <input name="newNameArticleCategory" data-required="true" data-max-length="50" data-min-length="2" type="text">
+                        </div>
+                    </div>
+                    <div class="categories-button">
+                            <button type="submit" formaction="/articles/UpdateArticleCategory" class="PD__button">Изменить категорию</button>
+                    </div>
+                    <div class="categories-button">
+                            <button type="submit" id="deleteCategoryButton" formaction="/articles/DeleteArticleCategory" class="PD__button">Удалить категорию</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+
+</html>

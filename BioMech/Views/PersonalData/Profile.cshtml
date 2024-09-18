@@ -1,0 +1,342 @@
+﻿@model ProfileModel
+<style>
+    #estimateDays, #estimateAverage {
+        cursor: pointer;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/PersonalData/profile.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/graph.js" defer></script>
+    <script src="~/js/Common/clickActive.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="modal" id="confirmModal" style="display:none;">
+            <div>
+                <p>Вы уверены, что хотите удалить данную фотографию?</p>
+                <div class="modalButton">
+                    <button id="yesBtn" class="button">Да</button>
+                    <button id="noBtn" class="button">Нет</button>
+                </div>
+            </div>
+        </div>
+        <div class="result-photo-big" id="resultPhotoBig" style="display: none;">
+            <div class="result-block-big-img">
+                <div class="close-btn">&times;</div>
+                <div class="result-photo-big-img" id="bigImg"></div>
+            </div>
+        </div>
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="profile">
+                <h2 class="back-h2">Профиль</h2>
+                <div class="profile__data">
+                    <div class="profile__ava">
+                        @if (Model.User.PhotoProfile != null)
+                        {
+                            <img src="@Model.User.PhotoProfile" alt="Profile Photo" />
+                        }
+                        else
+                        {
+                            <img src="~/img/profile.png" id="photoProfile" alt="Default Profile" />
+                        }
+                    </div>
+                    <div class="profile-data-changed">
+                        <div class="data">
+                            <div class="data__name">@Model.User.FirstName @Model.User.SecondName</div>
+                            <div class="data__mail">@Model.User.Email</div>
+                        </div>
+                        <form action="#" method="get" target="_blank">
+                            <button type="submit" asp-controller="PersonalData" asp-action="PersonalAccount" class="PD__button">Изменить личные данные</button>
+                        </form>
+                    </div>
+                </div>
+                <h2>Выполненные диагностики</h2>
+                <div class="albums">
+                    <button class="album button-clicked" id="albumAll" data-category-id="0"><p>Все</p></button>
+                    <button class="album" id="albumBlade" data-category-id="1"><p>Лопатки</p></button>
+                    <button class="album" id="albumKnees" data-category-id="2"><p>Колени</p></button>
+                    <button class="album" id="albumFeet" data-category-id="3"><p>Стопы</p></button>
+                    <button class="album" id="albumNeck" data-category-id="5"><p>Положение головы и шеи</p></button>
+                </div>
+                <div class="results__diagnostics results__diagnostics-limit" id="resultsDiagnostics">
+                    @if (Model == null || Model.PhotoDiagnostic == null || !Model.PhotoDiagnostic.Any())
+                    {
+                        <div class="plug" id="plug">
+                            <h3>Не найдены результаты диагностик</h3>
+                            <p>Предлагаем вам пройти наши диагностики на выбор</p>
+                            <form action="#" method="get" target="_blank">
+                                <button asp-controller="diagnostics" asp-action="DiagnosticsDescription" type="submit" class="more">Выбрать диагностику<img src="../img/icon.png" alt=""></button>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        @foreach (var result in Model.PhotoDiagnostic)
+                        {
+                            <div class="result" id="resultBlock" data-photo-id="@result.IdPhotoDiagnostic">
+                                <img src="@result.Photo" id="resultPhoto" />
+                                <div class="remove">&times;</div>
+                                <p class="result__data">@result.DateDownload.ToString("dd.MM.yyyy")</p>
+                                <p>@(Model.DiagnosticsProblems.ContainsKey(result.ProblemCategoryId) ? Model.DiagnosticsProblems[result.ProblemCategoryId] : "Нет категории")</p>
+                            </div>
+                        }
+                    }
+
+                </div>
+
+                <div class="plug" id="plug" style="display: none;">
+                    <h3>Не найдены результаты диагностик</h3>
+                    <p>Предлагаем вам пройти наши диагностики на выбор</p>
+                    <form action="#" method="get" target="_blank">
+                        <button asp-controller="diagnostics" asp-action="DiagnosticsDescription" type="submit" class="more">Выбрать диагностику<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+                <form action="#" method="get" target="_blank">
+                    <div id="btn_see_all" style="display: none;" class="profile__button">
+                        <button asp-controller="PersonalData" id="seeAllPhotosBtn" asp-action="ProfileResults" type="submit" class="PD__button">Посмотреть все фотографии</button>
+                    </div>
+                </form>
+                <h2>Тренировочная программа</h2>
+                <div class="choice-program">
+                    @if (Model.TrainingProgram != null && Model.TrainingProgram.Any())
+                    {
+                        foreach (var program in Model.TrainingProgram)
+                        {
+                            if (@program.NameTrainingProgram == "Крыловидные лопатки")
+                            {
+                                <div class="TrainingProgramsModelResult">
+                                    <a href="/TrainingPrograms/ProgramsCorrection?trainingProgramID=@program.IdTrainingProgram">
+                                        <img src="../img/diagnostics/image 4.png" alt="">
+                                        <h3>Вам доступна тренировочная программа <br /> "@program.NameTrainingProgram"</h3>
+                                    </a>
+                                </div>
+                            }
+                            if (@program.NameTrainingProgram == "Вальгус и варус колен")
+                            {
+                                <div class="TrainingProgramsModelResult">
+                                    <a href="/TrainingPrograms/ProgramsCorrection?trainingProgramID=@program.IdTrainingProgram">
+                                        <img src="../img/diagnostics/image 6.png" alt="">
+                                        <h3>Вам доступна тренировочная программа <br /> "@program.NameTrainingProgram"</h3>
+                                    </a>
+                                </div>
+                            }
+                            if (@program.NameTrainingProgram == "Вальгусная деформация стопы")
+                            {
+                                <div class="TrainingProgramsModelResult">
+                                    <a href="/TrainingPrograms/ProgramsCorrection?trainingProgramID=@program.IdTrainingProgram">
+                                        <img src="../img/diagnostics/image 3.png" alt="">
+                                        <h3>Вам доступна тренировочная программа <br /> "@program.NameTrainingProgram"</h3>
+                                    </a>
+                                </div>
+                            }
+                            if (@program.NameTrainingProgram == "Протракция шеи")
+                            {
+                                <div class="TrainingProgramsModelResult">
+                                    <a href="/TrainingPrograms/ProgramsCorrection?trainingProgramID=@program.IdTrainingProgram">
+                                        <img src="../img/diagnostics/image 8.png" alt="">
+                                        <h3>Вам доступна тренировочная программа <br /> "@program.NameTrainingProgram"</h3>
+                                    </a>
+                                </div>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="plug" id="plug">
+                            <h3>Не найдены тренировочные программы</h3>
+                            <p>Предлагаем вам пройти наши диагностики на выбор</p>
+                            <form action="#" method="get" target="_blank">
+                                <button asp-controller="diagnostics" asp-action="DiagnosticsDescription" type="submit" class="more">Выбрать диагностику<img src="../img/icon.png" alt=""></button>
+                            </form>
+                        </div>
+                    }
+                </div>
+
+                <h2>Мой журнал</h2>
+                <div class="journal">
+                    <div class="calendar calendarOne">
+                        <div class="month">
+                            <div class="get-date">
+                                <div class="get-month">
+                                    <button id="dateLeft">
+                                        <img src="~/img/programs/vecto-left.svg" alt="" />
+                                    </button>
+                                    <span id="monthToday"></span>
+                                    <button id="dateRigth">
+                                        <img src="~/img/programs/vecto-rigth.svg" alt="" />
+                                    </button>
+                                </div>
+                                <span id="yearToday" class="year"></span>
+                            </div>
+                        </div>
+                        <div class="days">
+                            <span>Пн</span>
+                            <span>Вт</span>
+                            <span>Ср</span>
+                            <span>Чт</span>
+                            <span>Пт</span>
+                            <span>Сб</span>
+                            <span>Вс</span>
+                        </div>
+                        <div class="dates" id="dates">
+                        </div>
+                    </div>
+                    <form method="post" action="@Url.Action("PostTrainingLogCalendar", "TrainingPrograms")" id="deleteForm">
+                        <input type="hidden" name="ratingTraining" id="ratingInput" required>
+                        <input type="hidden" name="dateTrainingLog" id="dateTrainingLogInput">
+                        <input type="hidden" name="trainingLogId" id="trainingLogIdInput">
+
+                        <div id="newRecord" class="record" style="display:none;">
+                            <div class="record-date">
+                                <div id="recordDate"></div><div id="recordMonth"></div><div id="recordYear"></div>
+                            </div>
+                            <h3 class="h-brown h-left">Сегодняшняя оценка тренировки и самочувствия</h3>
+                            <div class="score-choice">
+                                <div class="score">
+                                    <button type="button" class="score-button">1</button>
+                                    <button type="button" class="score-button">2</button>
+                                    <button type="button" class="score-button">3</button>
+                                    <button type="button" class="score-button">4</button>
+                                    <button type="button" class="score-button">5</button>
+                                    <button type="button" class="score-button">6</button>
+                                    <button type="button" class="score-button">7</button>
+                                    <button type="button" class="score-button">8</button>
+                                    <button type="button" class="score-button">9</button>
+                                    <button type="button" class="score-button">10</button>
+                                </div>
+                                <div class="score">
+                                    <span>Ужасно</span>
+                                    <span>Отлично</span>
+                                </div>
+                            </div>
+                            <h3 class="h-brown h-left">Добавить запись в журнале</h3>
+                            <textarea name="descriptionTraining" data-required="true" data-max-length="2000" data-min-length="10" name="userMessage" rows="8" placeholder="Напишите о своих впечатлениях о сегодняшней тренировке или дне. Оцените своё состояние и результаты: заметили ли вы изменения в своих ощущениях или подвижности? Укажите любые измерения, которые вы проводили, например, улучшение состояние или уменьшение дискомфорта в проблемных зонах."></textarea>
+                            <div class="profile__button">
+                                <button type="submit" class="PD__button" id="saveDescriptionTraining">Сохранить запись в журнале</button>
+                            </div>
+                        </div>
+                        <div id="existingRecord" class="record" style="display:none;">
+                            <div class="record-date">
+                                <div id="recordDate"></div><div id="recordMonth"></div><div id="recordYear"></div>
+                            </div>
+                            <h3 class="h-brown h-left">Оценка: </h3>
+                            <p>Описание дня</p>
+                            <div class="profile__button profile__button-bottom">
+                                <button id="editRecordButton" type="button" class="PD__button">Редактировать запись</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <h2>Отслеживание прогресса</h2>
+                <div class="tracking">
+                    <div class="tracking-navigation">
+                        <ul>
+                            <li><a id="estimateDays" class="active__acc">Оценка по дням</a></li>
+                            <li><a id="estimateAverage">Средняя оценка</a></li>
+                        </ul>
+                    </div>
+                    <div class="tracking-progress">
+                        <div class="gap">
+                            <div class="gap-choose">
+                                <h3 class="h-brown h-left">Выберите промежуток:</h3>
+                                <div class="gap-date">
+                                    <div class="gap-button-use">
+                                        <button class="gap-date__button" id="gapDateButtonLeft"></button>
+                                        <div class="calendar calendarTwo">
+                                            <div class="month">
+                                                <div class="get-date">
+                                                    <div class="get-month">
+                                                        <button id="dateLeftTwo">
+                                                            <img src="~/img/programs/vecto-left.svg" alt="" />
+                                                        </button>
+                                                        <span id="monthTodayTwo"></span>
+                                                        <button id="dateRigthTwo">
+                                                            <img src="~/img/programs/vecto-rigth.svg" alt="" />
+                                                        </button>
+                                                    </div>
+                                                    <span id="yearTodayTwo" class="year"></span>
+                                                </div>
+                                            </div>
+                                            <div class="days">
+                                                <span>Пн</span>
+                                                <span>Вт</span>
+                                                <span>Ср</span>
+                                                <span>Чт</span>
+                                                <span>Пт</span>
+                                                <span>Сб</span>
+                                                <span>Вс</span>
+                                            </div>
+                                            <div class="dates" id="datesTwo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gap-after"></div>
+                                    <div class="gap-button-use">
+                                        <button class="gap-date__button" id="gapDateButtonRight"></button>
+                                        <div class="calendar calendarThree">
+                                            <div class="month">
+                                                <div class="get-date">
+                                                    <div class="get-month">
+                                                        <button id="dateLeftThree">
+                                                            <img src="~/img/programs/vecto-left.svg" alt="" />
+                                                        </button>
+                                                        <span id="monthTodayThree"></span>
+                                                        <button id="dateRigthThree">
+                                                            <img src="~/img/programs/vecto-rigth.svg" alt="" />
+                                                        </button>
+                                                    </div>
+                                                    <span id="yearTodayThree" class="year"></span>
+                                                </div>
+                                            </div>
+                                            <div class="days">
+                                                <span>Пн</span>
+                                                <span>Вт</span>
+                                                <span>Ср</span>
+                                                <span>Чт</span>
+                                                <span>Пт</span>
+                                                <span>Сб</span>
+                                                <span>Вс</span>
+                                            </div>
+                                            <div class="dates" id="datesThree">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="dateTrainingLogOne" id="dateTrainingLogOne" required>
+                            <input type="hidden" name="dateTrainingLogTwo" id="dateTrainingLogTwo" required>
+                            <div class="gap-button">
+                                <div class="profile__button">
+                                    <button type="submit" id="UpdateGraph" class="PD__button">Обновить данные на графике</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="graphCanvas">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+    <script>
+        var diagnosticsProblems = @Html.Raw(Json.Serialize(Model.DiagnosticsProblems));
+    </script>
+    <script src="~/js/profile.js" defer></script>
+</body>
+
+</html>

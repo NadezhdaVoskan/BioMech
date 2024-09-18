@@ -1,0 +1,116 @@
+﻿@model BioMech.Models.TrainingProgramModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование тренировочной программы</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/TrainingPrograms/programs.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js"></script>
+    <script src="~/js/programs.js" defer></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="programs">
+                <div class="programs-create">
+                    <form asp-controller="TrainingPrograms" asp-action="UpdateTrainingProgram" method="post">
+                        <h2>Редактирование тренировочной программы</h2>
+                        <h3>Название тренировочной программы</h3>
+                        <div class="autorization-input top">
+                            <div class="autorization-field">
+                                <input name="nameTrainingProgram" value="@Model.TrainingProgram.NameTrainingProgram" data-required="true" data-max-length="50" data-min-length="2" type="text">
+                            </div>
+                        </div>
+                        <input type="hidden" name="trainingProgramId" value="@Model.TrainingProgram.IdTrainingProgram" required>
+                        <h3>Краткое описание тренировочной программы</h3>
+                        <div class="autorization-input">
+                            <div class="autorization-field">
+                                <textarea name="shortDescriptionTrainingProgram" data-required="true" data-max-length="1000" data-min-length="10" rows="4">@Model.TrainingProgram.DescriptionTrainingProgram</textarea>
+                            </div>
+                        </div>
+                        <div class="programs-button">
+                            <button type="submit" class="PD__button">Редактировать программу</button>
+                        </div>
+                    </form>
+                    <form asp-controller="TrainingPrograms" asp-action="ManageDailyTraining" method="post">
+                        <h2>Редактирование одного дня тренировочной программы</h2>
+                        <h3>Видео тренировки</h3>
+                        <div class="autorization-input top">
+                            <select id="videoTrainingSelect" name="videoTrainingId" style="width: 100%;">
+                                @foreach (var training in Model.Training)
+                                {
+                                    <option class="option-training" value="@training.IdTraining" data-img="@training.Photo_Training_Video">@training.NameTraining</option>
+                                }
+                            </select>
+                        </div>
+
+                        <h3>День тренировки</h3>
+                        <div class="autorization-input top">
+                            <div class="box">
+                                <select name="trainingDayProgramId" required data-required="true">
+                                    @foreach (var category in Model.OneDayTrainingProgram)
+                                    {
+                                        <option value="@category.IdOneDayTrainingProgram">@category.DayTrainingProgram</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <h3>Порядковый номер видео</h3>
+                        <div class="autorization-input top">
+                            <div class="box">
+                                <select name="serialNumberId" id="numberVideos">
+                                    <option value="1">Первое</option>
+                                    <option value="2">Второе</option>
+                                    <option value="3">Третье</option>
+                                    <option value="4">Четвертое</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="programs-button">
+                            <button type="submit" class="PD__button">Сохранить изменения дня программы</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+
+</html>
+
+
+<script>
+    $(document).ready(function () {
+        function formatState(state) {
+            if (!state.id) {
+                return state.text;
+            }
+            var $state = $(
+                '<span><img src="' + state.element.getAttribute('data-img') + '" class="img-flag" /> ' + state.text + '</span>'
+            );
+            return $state;
+        };
+
+        $('#videoTrainingSelect').select2({
+            templateResult: formatState,
+            templateSelection: formatState
+        });
+    });
+</script>
+

@@ -1,0 +1,70 @@
+﻿@model BioMech.Models.User
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Удаление личного аккаунта</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/PersonalData/lk.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+    <script src="~/js/Common/validation.js" defer></script>
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/PersonalData/deletePersonalAccount.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="modal" id="confirmModal" style="display:none;">
+            <div>
+                <p>Вы уверены, что хотите удалить аккаунт?</p>
+                <div class="modalButton">
+                    <button id="yesBtn" class="button">Да</button>
+                    <button id="noBtn" class="button">Нет</button>
+                </div>
+            </div>
+        </div>
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="lk">
+                <div class="lk__navigation">
+                    <ul>
+                        <li><a asp-controller="PersonalData" asp-action="PersonalAccount">Личные данные</a></li>
+                        <li><a id="uda" asp-controller="PersonalData" asp-action="DeletePersonalAccount">Удаление аккаунта</a></li>
+                    </ul>
+                </div>
+                <div class="lk__info">
+                    <div class="lk__info__item">
+                        <h2>Удаление аккаунта</h2>
+                        <div class="lk__blocks dlt">
+                            <div class="lk__block">
+                                <p class="delete-account-text">
+                                    Это действие необратимо. Вся ваша информация, записи в журнале, статистика и т.д. будут полностью удалены. Это не
+                                    повлияет на вашу возможность повторно создать совершенно новую учетную запись в будущем.
+                                </p>
+                                <h3 class="h-left">Введите свой пароль для подтверждения удаления аккаунта</h3>
+                                <form method="post" asp-controller="PersonalData" asp-action="DeleteAccount" class="lk__block" id="deleteForm">
+                                    <div class="form__block">
+                                        <div class="autorization-field password">
+                                            <input data-password="true" name="checkPasswordForDelete" type="password" placeholder="Введите свой пароль" id="passwordOne"> 
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="PD__button" id="delAccount">Удалить аккаунт</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+
+</html>

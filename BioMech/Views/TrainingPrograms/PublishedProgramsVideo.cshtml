@@ -1,0 +1,49 @@
+﻿@model BioMech.Models.Training
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опубликованные тренировки</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/TrainingPrograms/programs.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js"></script>
+    <script src="~/js/programs.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="programs">
+
+                <div class="articles">
+                <div class="program">
+                    <div class="program-video">
+                            <iframe src="https://www.youtube.com/watch?v=ax8yvfrQPpE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <h3 class="h-brown h-left">
+                                Название
+                            </h3>
+                            <p class="program__text">
+                               Описание
+                            </p>
+                    </div>
+
+                        <div class="programs-button">
+                            <button class="PD__button" type="submit" data-url="@Url.Action("CreatePrograms", "trainingPrograms")">Редактировать видео тренировки</button>
+                        </div>
+                        <div class="programs-button">
+                            <button type="submit" class="PD__button">Деактивировать видео тренировки</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+
+</body>
+
+</html>

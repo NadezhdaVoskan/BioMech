@@ -1,0 +1,52 @@
+﻿@model TrainingCategoryViewModel
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренировки</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/TrainingPrograms/programs.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js"></script>
+    <script src="~/js/programs.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="programs">
+
+                <div class="articles">
+                    <div class="search">
+                        <form class="autorization-field" asp-controller="trainingPrograms" asp-action="SearchTrainingProgramsVideo" method="get">
+                            <input type="text" name="queryTrainingPrograms" placeholder="Искать здесь...">
+                            <button class="checkPassword" type="submit"><img src="../img/programs/Vector.png" alt=""></button>
+                        </form>
+                    </div>
+                    <div class="program">
+                        <h2 class="h2-center">@Model.CategoryName</h2>
+                        <div id="trainingProgramsContainer" class="program__content">
+                            @foreach (var training in Model.Trainings)
+                            {
+                                <div class="program__block">
+                                    <a href="/TrainingPrograms/ProgramVideo?idTrainingProgram=@training.IdTraining">
+                                        <img src="@training.Photo_Training_Video" alt="" class="cover">
+                                        <p class="program__text">@training.NameTraining</p>
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BioMech.Services.ArticlesService">
+    <Position X="27.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAaAAgAJBAAAhABOEAAACAEAAAABAAABAEAAAAIAAA=</HashCode>
+      <FileName>Services\ArticlesService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Services.AuthenticationService">
+    <Position X="17.25" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACABAAACAAAAAAAAIAAEAAAAIAAAAEAACAAAQA=</HashCode>
+      <FileName>Services\AuthenticationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Services.DiagnosticsService">
+    <Position X="14.75" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CBAAAAAAIBAAAAAAKIACAAAAAAAACAAAAAEAAAAAAQA=</HashCode>
+      <FileName>Services\DiagnosticsService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Services.PersonalAccountService">
+    <Position X="20.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>CAAEQAAAABiAAAAACAAQhhCAAAAAAoAAgAEAQAIAEAA=</HashCode>
+      <FileName>Services\PersonalAccountService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Services.SupportService">
+    <Position X="22.25" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Services\SupportService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Services.TrainingProgramsService">
+    <Position X="6.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAiAAIBUABARBAAAGAQAQABABQQCAAAEFIEAASEgCCU=</HashCode>
+      <FileName>Services\TrainingProgramsService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Repositories.ArticlesRepository">
+    <Position X="24.75" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAQAAAAAgABEEAAACAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Repositories\ArticlesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Repositories.AuthenticationRepository">
+    <Position X="22.25" Y="8.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACQBAAACAAAAAAAAAAAAAAAAIAAAAAAACAAAAA=</HashCode>
+      <FileName>Repositories\AuthenticationRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Repositories.DiagnosticsRepository">
+    <Position X="19.75" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQABAAAAAAKIACAAEAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\DiagnosticsRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Repositories.PersonalAccountRepository">
+    <Position X="23.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAEQAAQABCAAAAACAAQEhAIAAAAAIAAgAAAQAIAAAA=</HashCode>
+      <FileName>Repositories\PersonalAccountRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Repositories.TrainingProgramsRepository">
+    <Position X="12" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QACBQIAQIBAwBAAgCAQAQABABAAAAEgEFBAAAAAAAAA=</HashCode>
+      <FileName>Repositories\TrainingProgramsRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Controllers.ArticlesController">
+    <Position X="18" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQCJAIAgAAAgFAIFAAgCACFAAIAAAAEAAEAAAAAAA=</HashCode>
+      <FileName>Controllers\ArticlesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Controllers.AuthenticationController">
+    <Position X="12.5" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAACAAAAAAACAAAIAAIAgAAAAAAAIAAEAAAAABEAAA=</HashCode>
+      <FileName>Controllers\AuthenticationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Controllers.DiagnosticsController">
+    <Position X="27.25" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAQgAEAAAAAAAIACAAAAAAAAKAAAAICAAAAIAQA=</HashCode>
+      <FileName>Controllers\DiagnosticsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Controllers.HomeController">
+    <Position X="6.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAABAAAAEAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Controllers.PersonalDataController">
+    <Position X="15" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAASAAAADAQAAEACAIIAAAAMIAAAgACgBAAASoAgAw=</HashCode>
+      <FileName>Controllers\PersonalDataController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Controllers.ProxyController">
+    <Position X="10.25" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ProxyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Controllers.SupportController">
+    <Position X="8.25" Y="8.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAgABAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\SupportController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BioMech.Controllers.TrainingProgramsController">
+    <Position X="9" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ACgAAZACAAAQBEAAgAQQQAQAgAOQiAAMgAAIQBAQAAQ=</HashCode>
+      <FileName>Controllers\TrainingProgramsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

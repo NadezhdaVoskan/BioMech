@@ -1,0 +1,59 @@
+﻿@model BioMech.Models.Training
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренировка "@Model.NameTraining"</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="~/css/TrainingPrograms/programs.css">
+    <link rel="stylesheet" href="~/css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js"></script>
+    <script src="~/js/programs.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="programs">
+
+                <div class="articles">
+                    <div class="program">
+                        <div class="program-video">
+                            <iframe src="@Model.LinkVideo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <h3 class="h-brown h-left">
+                                @Model.NameTraining
+                            </h3>
+                            <p class="program__text">
+                                @Model.DescriptionTraining
+                            </p>
+                    </div>
+
+                        @if (Context.Session.GetString("Role") == "2")
+                        {
+                            <div class="programs-button">
+                                <form action="@Url.Action("CreatePrograms", "trainingPrograms", new { id = Model.IdTraining })" method="get">
+                                    <button type="submit" class="PD__button">Редактировать видео тренировки</button>
+                                </form>
+                            </div>
+                            <div class="programs-button">
+                                <form action="@Url.Action("DeleteTraining", "trainingPrograms")" method="post">
+                                    <input type="hidden" name="trainingId" value="@Model.IdTraining" />
+                                    <button type="submit" class="PD__button">Деактивировать видео тренировки</button>
+                                </form>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+
+</body>
+
+</html>

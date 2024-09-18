@@ -1,0 +1,36 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Ошибка";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Common/style.css">
+</head>
+
+<body>
+    <div class="error-block">
+        <h2>Обнаружена ошибка</h2>
+        <h3>
+            Выявлена непредвиденная ошибка
+        </h3>
+        <p class="error-text">
+            Попробуйте выполнить следующие действия:
+        </p>
+        <div class="error-list">
+            <ul>
+                <li>Обновить страницу</li>
+                <li>Нажать на кнопку "Перейти на главную страницу"</li>
+            </ul>
+        </div>
+        <button class="more" type="button" onclick="location.href='@Url.Action("Index", "Home")'">Перейти на главную страницу</button>
+    </div>
+</body>
+
+</html>

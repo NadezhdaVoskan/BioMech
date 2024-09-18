@@ -1,0 +1,86 @@
+﻿@model ArticlesModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статьи</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Articles/articles.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js" defer></script>
+    <script src="~/js/Articles/articles.js" defer></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="search">
+                <form class="search-stroke element-animation" asp-controller="Articles" asp-action="SearchArticle" method="get">
+                    <input type="text" name="query" placeholder="Искать здесь..." autocomplete="off" id="searchInput" >
+                    <button class="checkPassword" type="submit"><img src="../img/programs/Vector.png" alt=""></button>
+                </form>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="сategories" type="button">
+                        <img src="../img/programs/🦆 icon _options 2 outline_.png"
+                             alt="">
+                        Категории
+                    </button>
+                    <div id="myDropdown" class="dropdown-content">
+                        @foreach (var category in Model.ArticlesCategory)
+                        {
+                            <a href="#" onclick="loadArticlesByCategory(@category.IdArticleCategory)">@category.NameArticleCategory</a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="articles">
+                @foreach (var article in Model.Articles)
+                {
+                    <div class="article">
+                        <div class="article__content">
+                            <div class="article__img element-animation">
+                                <img src="@article.Image_Article" alt="">
+                            </div>
+                            <div class="article__description element-animation">
+                                <h3 class="text-open">@article.Name_Article</h3>
+                                <p class="article__text">@article.ShortDescriptionArticle</p>
+                                <form asp-controller="Articles" asp-action="Article" method="get" target="_blank" class="article-form">
+                                    <input type="hidden" name="idArticle" value="@article.IdArticle" />
+                                    <button type="submit" class="more">Читать<img src="../img/icon.png" alt=""></button>
+                                </form>
+                            </div>
+                            @if (Context.Session.GetString("Role") == "2")
+                            {
+                                <div class="hamburger-lines">
+                                    <span class="line line1"></span>
+                                    <span class="line line2"></span>
+                                    <span class="line line3"></span>
+                                    <ul class="submenu submenu-articles">
+                                        <li><a href="/articles/CreateArticles/@article.IdArticle">Редактировать статью</a></li>
+                                        <li>
+                                            <form id="deleteArticleForm-@article.IdArticle" action="@Url.Action("DeleteArticle", "Articles")" method="post">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" name="articleId" value="@article.IdArticle" />
+                                            </form>
+                                            <a href="javascript:void(0);" onclick="submitDeleteForm(@article.IdArticle)">Деактивировать статью</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+                        <p class="article__date element-animation">Опубликовано: @article.PublicationDateArticle.ToString("dd MMM yyyy")</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+
+</html>

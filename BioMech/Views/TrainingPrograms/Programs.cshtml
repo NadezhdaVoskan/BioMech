@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренировки</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/TrainingPrograms/programs.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js"></script>
+    <script src="~/js/programs.js" defer></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="programs">
+                    <div class="autorization-input search">
+                        <form class="autorization-field" asp-controller="trainingPrograms" asp-action="SearchTrainingProgramsVideo" method="get">
+                            <input type="text" name="queryTrainingPrograms" placeholder="Искать здесь...">
+                            <button class="checkPassword" type="submit"><img src="../img/programs/Vector.png" alt=""></button>
+                        </form>
+                    </div>
+                <div class="program left">
+                    <h2>МФР</h2>
+                    <p class="program__text">
+                        Миофасциальный релиз (МФР) – это комплекс упражнений, направленных на ускорение
+                        восстановительных
+                        процессов в мягких тканях, улучшение кровотока и питание мышц и фасций. Программа для тех, кто хочет
+                        снять напряжение со спины, шеи и поясницы, избавиться от болей и зажимов, восстановить здоровье
+                        позвоночника.
+                    </p>
+                    <div class="program__img">
+                        <img src="../img/programs/Rectangle 1.png" alt=""><img src="../img/programs/Rectangle 3.png"
+                                                                                alt=""><img src="../img/programs/Rectangle 2.png" alt="">
+                    </div>
+                    <form action="" method="get" target="_blank">
+                            <button data-category-id="1" onclick="loadCategoryPrograms(this)" class="more" >Начать тренироваться<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+                <div class="program">
+                    <h2>Дыхание</h2>
+                    <p class="program__text">
+                        Уметь правильно дышать очень важно, правильное дыхание — это залог здоровой жизни.
+                        Упражнения по дыхательной гимнастике полезны абсолютно всем, но особенно людям, страдающим болезнями
+                        органов дыхания, заболеваниями сердечно-сосудистой системы, неврозами, сильными стрессами и
+                        различными видами психических расстройств.
+                    </p>
+                    <div class="program__img">
+                        <img src="../img/programs/Rectangle 4.png" alt=""><img src="../img/programs/Rectangle 5.png"
+                                                                                alt=""><img src="../img/programs/Rectangle 6.png" alt="">
+                    </div>
+                    <form action="" method="get" target="_blank">
+                            <button data-category-id="2" onclick="loadCategoryPrograms(this)" class="more">Начать тренироваться<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+                <div class="program">
+                    <h2>Стопы</h2>
+                    <p class="program__text">
+                        В течение дня на стопы приходится огромная нагрузка. Упражнения для стоп будут полезны
+                        всем — спортсменам, людям, ведущим малоподвижный образ жизни, пожилым и не только. Они повышают
+                        тонус мышц, улучшают эластичность связок и делают голеностоп подвижнее. А еще эта гимнастика
+                        останавливает развитие деформации стоп, уменьшает болевые ощущения и снимает усталость, зажатость
+                        мышц. Это является лучшей профилактикой плоскостопия и вальгуса.
+                    </p>
+                    <div class="program__img">
+                        <img src="../img/programs/Rectangle 7.png" alt=""><img src="../img/programs/Rectangle 9.png"
+                                                                                alt=""><img src="../img/programs/Rectangle 8.png" alt="">
+                    </div>
+                    <form action="" method="get" target="_blank">
+                            <button data-category-id="3" onclick="loadCategoryPrograms(this)" class="more">Начать тренироваться<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+                <div class="program">
+                    <h2>Мобилизация грудного отдела</h2>
+                    <p class="program__text">
+                        Работа с грудным отделом позвоночника необходима для поддержания правильного положения
+                        тела, укрепления мышц, улучшения кровообращения и дыхательной функции, а также для предотвращения
+                        болей в спине, травм и напряжения в области плеч и шеи. Регулярные упражнения и тренировки этого
+                        отдела позвоночника помогут улучшить гибкость, силу и общее самочувствие.
+                    </p>
+                    <div class="program__img">
+                        <img src="../img/programs/Rectangle 10.png" alt=""><img src="../img/programs/Rectangle 11.png"
+                                                                                 alt=""><img src="../img/programs/Rectangle 12.png" alt="">
+                    </div>
+                    <form action="" method="get" target="_blank">
+                            <button data-category-id="4" onclick="loadCategoryPrograms(this)" class="more">Начать тренироваться<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+                <div class="program">
+                    <h2>Ягодицы</h2>
+                    <p class="program__text">
+                        Ягодичная мускулатура принимает участие в стабилизации позвоночника и таза, то есть
+                        способствует поддержанию анатомически правильного положения позвоночного столба и тазового пояса.
+                        Сильные ягодичные мышцы вносят немалый вклад в сохранение правильной осанки и красивой походки. Они
+                        снижают риск развития заболеваний позвоночника и играют немаловажную роль в сохранении здоровья
+                        тазобедренных суставов.
+                    </p>
+                    <div class="program__img">
+                        <img src="../img/programs/Rectangle 13.png" alt=""><img src="../img/programs/Rectangle 14.png"
+                                                                                 alt=""><img src="../img/programs/Rectangle 15.png" alt="">
+                    </div>
+                    <form action="" method="get" target="_blank">
+                            <button data-category-id="5" onclick="loadCategoryPrograms(this)" class="more">Начать тренироваться<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+                <div class="program">
+                    <h2>Осанка</h2>
+                    <p class="program__text">
+                        Неправильная осанка приводит к неравномерной нагрузке на позвоночник и может стать
+                        причиной усталости, боли в спине и головной боли. Правильная осанка позволяет поддерживать в тонусе
+                        мышцы и суставы, правильно распределять нагрузку по всему организму. Тем самым способствует
+                        профилактике заболеваний опорно-двигательного аппарата.
+                    </p>
+                    <div class="program__img">
+                        <img src="../img/programs/Rectangle 17.png" alt=""><img src="../img/programs/Rectangle 16.png"
+                                                                                 alt=""><img src="../img/programs/Rectangle 18.png" alt="">
+                    </div>
+                    <form action="" method="get" target="_blank">
+                            <button data-category-id="6" onclick="loadCategoryPrograms(this)" class="more">Начать тренироваться<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+                <div class="program">
+                    <h2>ТБС, МТД</h2>
+                    <p class="program__text">
+                        Работа над тазобедренными суставами (ТБС) направлена на укрепление мышц и связок в
+                        области тазобедренных суставов, улучшение подвижности и снижение болевых ощущений. <br>
+                        Мышцы тазового дна (МТД) поддерживают органы малого таза в нормальном физиологическом положении,
+                        обеспечивают качественную родовую деятельность, участвуют в процессах мочеиспускания и дефекации.
+                        Часто после беременностей и родов, при генетической предрасположенности, на фоне малоподвижного
+                        образа жизни, а также в период менопаузы эти мышцы теряют тонус.
+                    </p>
+                    <div class="program__img">
+                        <img src="../img/programs/Rectangle 19.png" alt=""><img src="../img/programs/Rectangle 21.png"
+                                                                                 alt=""><img src="../img/programs/Rectangle 20.png" alt="">
+                    </div>
+                    <form action="" method="get" target="_blank">
+                            <button data-category-id="7" onclick="loadCategoryPrograms(this)" class="more">Начать тренироваться<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+                <div class="program">
+                    <h2>Кор и пресс</h2>
+                    <p class="program__text">
+                        Поддержание мышц кора в тонусе позволяет минимизировать боль в спине, оказывает
+                        защитные свойства на межпозвоночные диски, увеличивает объем легких, ко всему этому еще позволяет
+                        иметь рельефный живот. Кор в той или иной степени участвует практически в каждом движении, помогает
+                        стабилизировать спину, таз, бёдра и другие части тела, распределить нагрузку между мышцами и
+                        предотвратить травмы опорно-двигательного аппарата.
+                    </p>
+                    <div class="program__img">
+                        <img src="../img/programs/Rectangle 22.png" alt=""><img src="../img/programs/Rectangle 23.png"
+                                                                                 alt=""><img src="../img/programs/Rectangle 24.png" alt="">
+                    </div>
+                    <form action="" method="get" target="_blank">
+                            <button data-category-id="8" onclick="loadCategoryPrograms(this)" class="more">Начать тренироваться<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+                <div class="program">
+                    <h2>Активация мышц</h2>
+                    <p class="program__text">
+                        Мышечная активация может помочь укрепить «связь разума и тела» с помощью специальных
+                        упражнений, ориентированных на соответствующие мышцы. Мышцы нужно подготовить к работе: сокращениям
+                        и растяжению под нагрузкой. Работа над активацией помогает эффективнее совершать присущую мышцам
+                        работу.
+                    </p>
+                    <div class="program__img">
+                        <img src="../img/programs/Rectangle 25.png" alt=""><img src="../img/programs/Rectangle 26.png"
+                                                                                 alt=""><img src="../img/programs/Rectangle 27.png" alt="">
+                    </div>
+                    <form action="" method="get" target="_blank">
+                            <button data-category-id="9" onclick="loadCategoryPrograms(this)" class="more">Начать тренироваться<img src="../img/icon.png" alt=""></button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+/*
+=========АНАЛИЗ=========
+*/
+
+.definitions {
+    background-color: #FDF7EB;
+    padding: 3rem 0 2.5em;
+    max-width: 85rem;
+    margin: -1.5rem auto 0;
+    z-index: -1;
+}
+
+.bio__text {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+    padding: 0 2rem;
+    color: #8E7D6D;
+}
+
+.biomech__img {
+    text-align: center;
+}
+
+.biomech__img img {
+    width: 28rem;
+}
+
+/*
+=========ДИАГНОСТИКА=========
+*/
+.first {
+    order: 1;
+}
+
+.two {
+    order: 2;
+}
+
+.diagnostics {
+    display: flex;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.dia__img {
+    width: 40%;
+    background-size: cover;
+}
+
+.dia__img.first {
+    margin-right: 1.5rem;
+}
+
+.dia__img.two {
+    margin-left: 1.5rem;
+}
+
+.dia__text {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+    color: #8E7D6D;
+}
+
+.more {
+    margin: 1rem 0 0 auto;
+}
+
+.run__img {
+    display: flex;
+    justify-content: space-around;
+}
+
+.run__img img {
+    width: 45%;
+}
+
+.run__text {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+    padding: 0 2rem;
+    color: #8E7D6D;
+}
+
+.run {
+    margin-bottom: 5rem;
+}

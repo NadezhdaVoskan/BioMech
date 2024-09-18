@@ -1,0 +1,110 @@
+﻿@model BioMech.Models.TrainingProgramModel
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренировочная программа “@Model.TrainingProgram.NameTrainingProgram”</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Common/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/TrainingPrograms/programs.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/swiper-bundle.min.js" defer></script>
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/programs.js" defer></script>
+    <script src="~/js/TrainingProgram/trainingProgramForEditor.js" defer></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="programs">
+                <div class="program">
+                    <h2 style="text-align: center;">Тренировочная программа <br> “@Model.TrainingProgram.NameTrainingProgram”</h2>
+                    <p class="program-correction-text">
+                        @Model.TrainingProgram.DescriptionTrainingProgram 
+                    </p>
+                </div>
+                <div class="program program-back">
+                    <div class="program-listing-day">
+                        <div class="slide-prev">
+                            <img src="~/img/programs/vecto-left.svg" alt="" />
+                        </div>
+                        <div class="image-slider swiper">
+                            <div class="image-slider__wrapper swiper-wrapper">
+                                @foreach (var result in Model.OneDayTrainingProgram)
+                                {
+                                    <div class="image-slider__slide swiper-slide">
+                                        <div class="image-slider__image">
+                                            <button name="day-button" class="day-block" data-id="@result.IdOneDayTrainingProgram" data-day="@result.DayTrainingProgram">@result.DayTrainingProgram</button>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="slide-next">
+                            <img src="~/img/programs/vecto-rigth.svg" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="program program-back">
+                    <div class="training">
+                        <h4 class="h-left">День 1</h4>
+
+
+
+                        <div id="training-container">
+                            @foreach (var training in Model.Training)
+                            { 
+                                <div class="program-day-training">
+                                    <div class="training-description">
+                                        <a href="/TrainingPrograms/ProgramVideo?idTrainingProgram=@training.IdTraining" >
+                                            <img class="video-training" src="~/img/articles/articles.svg" alt="" />
+                                        </a>
+                                        <div class="training-description-text">
+                                            <a style="text-decoration: none;" href="/TrainingPrograms/ProgramVideo?idTrainingProgram=@training.IdTraining" >
+                                                <h3 class="h-brown">Название тренировки @training.NameTraining </h3>
+                                            </a>
+                                            <p>Описание тренировки @training.DescriptionTraining </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            } 
+                        </div>
+
+
+                        <div class="program-day-training" id="recovery-section" style="display:none;">
+                            <div class="training-description sleep">
+                                <div class="training-description-text">
+                                    <p class="program-correction-text">
+                                        Важен полноценный отдых. Убедитесь, что вы отдыхаете и восстанавливаетесь. Если вам нужен дополнительный отдых,
+                                        просто вернитесь, когда будете готовы, поскольку вы всегда можете скорректировать даты завершения. Помните, что ваше самочувствие — это
+                                        приоритет, и правильное восстановление поможет вам быть более продуктивным в будущем.
+                                    </p>
+                                </div>
+                                <img class="sleep-training" src="~/img/programs/sleep.png" alt="" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <form asp-controller="TrainingPrograms" asp-action="EditingPrograms" method="get" target="_blank" class="article-form">
+                    <input type="hidden" name="trainingProgramID" value="@Model.TrainingProgram.IdTrainingProgram" />
+                    <div class="programs-button">
+                        <button type="submit" class="PD__button">Редактировать программу</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+
+</body>
+
+</html>

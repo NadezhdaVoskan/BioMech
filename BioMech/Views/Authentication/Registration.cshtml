@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Authentication/entrance.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/validation.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="autorization">
+            <img src="../img/authorization/Untitled 1.png" class="auto__img" alt="">
+            <div class="autorization__block">
+                <h3 class="h-brown h-left">Регистрация</h3>
+                <div class="auto__descriptiont">
+                    <p class="autorization-text">Есть аккаунт?</p>
+                    <a asp-controller="authentication" asp-action="Authorization" class="autorization-text">Авторизоваться</a>
+                </div>
+                <form method="post" id="add-form">
+                    <div class="autorization-input">
+                        <div class="autorization-field">
+                            <input data-email="true" name="email" type="text" placeholder="Элетронная почта">
+                        </div>
+                    </div>
+                    <div class="name">
+                        <div class="autorization-input">
+                            <div class="autorization-field">
+                                <input data-required="true" data-max-length="50" data-min-length="2" name="firstname" type="text" placeholder="Имя">
+                            </div>
+                        </div>
+                        <div class="autorization-input">
+                            <div class="autorization-field">
+                                <input data-required="true" data-max-length="50" data-min-length="2" name="surname" type="text" placeholder="Фамилия">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="autorization-input">
+                        <div class="autorization-field password">
+                            <input data-password="true" name="password" id="passwordOne" type="password" placeholder="Пароль">
+                            <button class="checkPassword password-control" type="submit" onclick="return show_hide_password(this);"><img src="../img/authorization/ic_eye.png" alt=""></button>
+                        </div>
+                    </div>
+                    <button type="submit" class="autorization-btn">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+
+</body>
+
+</html>

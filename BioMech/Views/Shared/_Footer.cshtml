@@ -1,0 +1,48 @@
+﻿<footer>
+    <div class="footer">
+        <img class="footer__logo" src="~/img/head__foot/Логотип футер.png" alt="logo">
+        <div class="navigation">
+            <h3 class="h-after h-brown">Карта сайта</h3>
+            <div class="navi">
+                <ul>
+                    <li><a asp-controller="home" asp-action="Index">Главная</a></li>
+                    <li><a asp-controller="articles" asp-action="Articles">Статьи</a></li>
+                    <li><a asp-controller="trainingPrograms" asp-action="Programs">Тренировочные программы</a></li>
+                </ul>
+                <ul>
+                    <li><a asp-controller="diagnostics" asp-action="DiagnosticsDescription">Диагностика</a></li>
+                @if (Context.Session.GetString("UserEmail") != null)
+                    {
+                        <li><a asp-controller="PersonalData" asp-action="Profile">Журнал тренировок</a></li>
+                        <li><a asp-controller="PersonalData" asp-action="PersonalAccount">Личный аккаунт</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="authentication" asp-action="Authorization">Журнал тренировок</a></li>
+                        <li><a asp-controller="authentication" asp-action="Authorization">Личный аккаунт</a></li>
+                    }
+                    <li><a asp-controller="support" asp-action="Support">Поддержка</a></li>
+                </ul>
+                <ul>
+                    <li><a asp-controller="home" asp-action="Politics">Политика конфиденциальности</a></li>
+                    <li><a asp-controller="home" asp-action="Conditions">Условия использования</a></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contacts">
+            <h3 class="h-after h-brown">Контакты</h3>
+            <div class="contacts__text">
+                <div class="contact">
+                    <img src="~/img/head__foot/tel.png" alt="">
+                    <p>+7-985-687-45-55</p>
+                </div>
+                <div class="contact">
+                    <img src="~/img/head__foot/pochta.png" alt="">
+                    <p>isip_n.n.voskan@mpt.ru</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="BioMech">© «BioMech», 2024</p>
+</footer>

@@ -1,0 +1,72 @@
+﻿@model TrainingsModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архив тренировок</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/TrainingPrograms/programs.css">
+    <link rel="stylesheet" href="../css/common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js"></script>
+    <script src="~/js/programs.js" defer></script>
+    <script src="~/js/TrainingProgram/training.js" defer></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="search">
+                <form class="autorization-field" asp-controller="trainingPrograms" asp-action="SearchTrainingProgramsVideoArchive" method="get">
+                    <input type="text" name="queryTrainingPrograms" placeholder="Искать здесь...">
+                    <button class="checkPassword" type="submit"><img src="../img/programs/Vector.png" alt=""></button>
+                </form>
+            </div>
+            <div class="articles"> 
+                @foreach (var training in Model.TrainingsList)
+                { 
+                    <div class="article">
+                        <div class="article__content">
+                            <div class="article__img">
+                                <img src="@training.Photo_Training_Video" alt="">
+                            </div>
+                            <div class="article__description">
+                                <h3>@training.NameTraining</h3>
+                                <p class="article__text">@training.DescriptionTraining</p>
+                                <form asp-controller="TrainingPrograms" asp-action="ProgramVideo" method="get" target="_blank" class="article-form">
+                                    <input type="hidden" name="idTrainingProgram" value="@training.IdTraining" />
+                                    <button type="submit" class="more">Просмотреть<img src="../img/icon.png" alt=""></button>
+                                </form>
+
+                            </div>
+                            <div class="hamburger-lines hamburger-program">
+                                <span class="line line1"></span>
+                                <span class="line line2"></span>
+                                <span class="line line3"></span>
+                                <ul class="submenu submenu-articles">
+                                    <li><a href="/trainingPrograms/CreatePrograms/@training.IdTraining">Редактировать видео</a></li>
+                                    <li>
+                                        <form id="publicTrainingForm-@training.IdTraining" action="@Url.Action("PublicTraining", "TrainingPrograms")" method="post">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="trainingId" value="@training.IdTraining" />
+                                        </form>
+                                        <a href="javascript:void(0);" onclick="submitPublicForm(@training.IdTraining)">Опубликовать видео</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                 } 
+
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+
+</html>

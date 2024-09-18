@@ -1,0 +1,31 @@
+﻿
+<div class="modalDiagnostics" id="confirmModal" style="display: none">
+    <span class="close-btn" id="close-btn">&times;</span>
+    <div class="modalCenter">
+        <h2>Загрузка фотографии</h2>
+        <div class="modal__img" id="modalImg">
+        </div>
+        <div id="progress">
+            <div class="progress__info"></div>
+            <div class="progress">
+                <div class="progress__true"></div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <input type="file" style="display:none" id="file" />
+    </div>
+</div>
+<div class="modalDiagnostics" id="resultModal" style="display: none">
+    <span  class="close-btn" id="close-btn-result">&times;</span>
+    <div class="modalCenter">
+        <h2>Результат диагностики</h2>
+        <div class="modal__img" id="resultImg">
+            <img src="" alt="" />
+        </div>
+        <h3 class="h-brown" id="resultText">У вас обнаружены/не обнаружены крыловидные лопатки</h3>
+    </div>
+    <div class="buttons">
+        <button id="startTrainingButton" class="more" data-url="@Url.Action("ProgramsCorrection", "TrainingPrograms")">Начать тренироваться</button>
+    </div>
+</div>

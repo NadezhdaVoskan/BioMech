@@ -1,0 +1,191 @@
+.delete-account {
+    display: none;
+}
+
+.indent {
+    padding: 3rem 0 0;
+}
+
+.lk {
+    display: flex;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.lk__navigation {
+    width: 20%;
+}
+
+    .lk__navigation ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%
+    }
+
+    .lk__navigation li a {
+        display: block;
+        overflow: auto;
+        color: #000000;
+        text-decoration: none;
+        padding: 0.75rem 0.625rem;
+        border-radius: 0;
+        position: relative;
+        top: 0px;
+        font-size: 1.25rem;
+    }
+
+        .lk__navigation li a.active__acc {
+            background: #F2E6DB;
+        }
+
+.lk__info {
+    width: 80%;
+    margin-left: 3rem;
+}
+
+.lk__blocks {
+    display: flex;
+    justify-content: space-between
+}
+
+.lk__block {
+    width: 47.5%;
+}
+
+.dlt > div.lk__block {
+    width: 100%;
+}
+
+.form__block__two {
+    display: flex;
+    justify-content: space-between
+}
+
+    .form__block__two .autorization-field:first-child {
+        margin-right: 10%;
+    }
+
+.autorization-field {
+    position: relative;
+    min-width: 100%;
+}
+
+.btn {
+    padding: 1rem 6rem;
+}
+
+.photo {
+    display: flex;
+    margin: 3rem 0;
+    align-items: center
+}
+
+.photo__ava {
+    margin-right: 2rem;
+    height: 11rem;
+    position: relative;
+}
+
+    .photo__ava img {
+        width: 11rem;
+        height: 11rem;
+        border-radius: 50%;
+    }
+
+.photo__action {
+    display: flex;
+    flex-direction: column;
+}
+
+    .photo__action .PD__button {
+        margin-bottom: 1rem;
+        width: 16rem;
+    }
+
+input[type=file] {
+    display: none;
+}
+
+.none {
+    display: none
+}
+
+.photo__ava:hover .remove {
+    opacity: 1;
+}
+
+.remove {
+    opacity: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity .22s;
+}
+
+.change__password .autorization-field {
+    margin-bottom: 1rem;
+}
+
+.autorization-text-nm {
+    font-size: 0.875rem;
+    color: #887460;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    line-height: 1.875rem;
+}
+
+.modal {
+    text-align: center;
+    width: 30rem;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 10;
+    padding: 1rem;
+    background-color: #F2E6DB;
+    border-radius: 1rem;
+}
+
+.modalCenter {
+    text-align: center
+}
+
+.modalButton {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+}
+
+.button {
+    border-radius: 0.5rem;
+    background-color: #D2C7BC;
+    border: 0rem;
+    font-size: 1rem;
+    padding: 0.5rem 0rem;
+    width: 40%;
+    cursor: pointer;
+}
+.emergence {
+    padding-bottom: 2rem;
+}
+
+.delete-account-text {
+    font-size: 1.125rem;
+    color: #887460;
+    text-decoration: none;
+    margin-bottom: 0.5rem
+}

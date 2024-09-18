@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Восстановление пароля</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Authentication/entrance.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/validation.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="modal" id="confirmMassage" style="display:none;">
+            <div>
+                <p>Ссылка для изменения пароля выслана вам на почту</p>
+            </div>
+        </div>
+        @Html.Partial("_Header")
+        <div class="autorization">
+            <img src="../img/authorization/Untitled 1.png" class="auto__img" alt="">
+            <div class="autorization__block">
+                <h3 class="h-brown h-left">Забыли пароль?</h3>
+                <p class="autorization-text">
+                    Не беспокойтесь! Просто введите свой адрес электронной почты, и мы вышлем вам ссылку для
+                    сброса пароля.
+                </p>
+                <form method="post" asp-controller="Authentication" asp-action="SendEmailForRecovery" id="add-form">
+                    <div class="autorization-input">
+                        <div class="autorization-field">
+                            <input data-email="true" type="text" name="emailForRecovery" placeholder="Элетронная почта" id="email">
+                        </div>
+                    </div>
+                    <button type="submit" class="autorization-btn" id="massageAccount">
+                        Отправить письмо для восстановления
+                    </button>
+                </form>
+                <div class="auto__descriptiont">
+                    <p class="autorization-text-nm top">Вспомнили пароль?</p>
+                    <a asp-controller="authentication" asp-action="Authorization" class="autorization-text-nm top">Авторизуйтесь!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+
+</body>
+
+</html>

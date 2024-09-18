@@ -1,0 +1,378 @@
+/*=======œŒ»— ========*/
+.autorization-field {
+    position: relative;
+    min-width: 100%;
+    margin-bottom: 1.25rem;
+    border-radius: 1rem;
+}
+
+
+.autorization-field {
+    position: relative;
+    min-width: 100%;
+}
+
+.autorization-input {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-family: sans-serif !important;
+}
+
+    .autorization-input input {
+        font-size: 0.88rem;
+        width: 100%;
+        height: 3rem;
+        padding-left: 1rem;
+        border: 0.0625rem solid #9A9797;
+        outline: none;
+        border-radius: 0.5rem;
+    }
+
+.search {
+    margin-bottom: 0.5rem;
+}
+
+    .search input {
+        height: 2rem;
+    }
+
+    .autorization-input textarea {
+        font-size: 0.88rem;
+        width: 100%;
+        padding: 1rem;
+        border: 0.0625rem solid #9A9797;
+        outline: none;
+        border-radius: 0.5rem;
+        resize: none;
+        color: #000;
+    }
+
+textarea {
+    font-family: sans-serif !important;
+}
+
+    .autorization-input .checkPassword {
+        text-align: center;
+        position: absolute;
+        top: 0;
+        right: 0px;
+        width: 2.5rem;
+        height: 2rem;
+        border: 0.0625rem solid #9A9797;
+        background: #fff;
+        border-radius: 0 1rem 1rem 0;
+        cursor: pointer;
+    }
+
+        .autorization-input .checkPassword img {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
+/*===============*/
+.left {
+    margin-bottom: 0.25rem;
+}
+
+.programs {
+    padding: 0 0rem 3rem;
+}
+
+    .programs h2 {
+        text-align: left;
+    }
+
+h2.h2-center {
+    text-align: center;
+}
+
+.program {
+    margin-bottom: 3.8rem;
+}
+
+    .program:last-child {
+        margin-bottom: 3rem;
+    }
+
+.program__text {
+    color: #7D7987;
+    line-height: 1.5rem;
+}
+
+.program__img {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.625rem 0;
+}
+
+    .program__img img {
+        width: 21.5rem;
+    }
+
+.program .more {
+    float: right;
+    margin-top: 0.625rem;
+    padding: 0.0625rem 1.25rem;
+    height: 2rem;
+}
+
+.program__content {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1rem;
+}
+
+.program__block {
+    width: 20.76rem;
+    margin-bottom: 1rem;
+    margin: 0 auto 1rem;
+}
+
+    .program__block a {
+        text-decoration: none;
+    }
+
+        .program__block a:hover {
+            opacity: 0.8
+        }
+
+.cover {
+    height: 12rem;
+    width: 20.76rem;
+    margin: 0 auto;
+}
+
+.program-video {
+    display: flex;
+    flex-direction: column;
+    margin: 0.625rem 0;
+}
+
+    .program-video iframe {
+        width: 43.25rem;
+        height: 25rem;
+        margin: 0 auto 1.5rem;
+    }
+
+/*=======œ–Œ√–¿ÃÃ¿ “–≈Õ»–Œ¬Œ ========*/
+
+.training {
+    padding: 1rem;
+}
+
+.program-back {
+    background-color: #FDF7EB;
+    border-radius: 2rem;
+}
+
+
+.program-correction-text {
+    color: #8E7D6D;
+    line-height: 2.5rem;
+    font-size: 1.25rem;
+}
+
+.program-listing-day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+}
+
+.day-block {
+    height: 4rem;
+    width: 8rem;
+    background-color: #fff;
+    border: none;
+    border-radius: 2rem;
+    border: 0.125rem #000 solid;
+}
+
+.day-block-active {
+    background-color: #EFE3D7
+}
+
+.mark {
+    height: 2rem;
+    width: 2rem;
+    border: 0.0625rem #000 solid;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 1rem;
+}
+
+.program-day-training {
+    align-items: center;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    width: 100%
+}
+
+.training-description {
+    display: flex;
+    background-color: #EFE3D7;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    width: 100%;
+    
+}
+
+.training-description-text {
+    margin-left: 1rem;
+}
+
+.sleep {
+    align-items: center;
+}
+
+.video-training {
+    height: 10rem;
+    width: 17.3rem;
+}
+
+.sleep-training {
+    height: 18rem;
+}
+
+.program-day-buttons {
+    display: flex;
+}
+
+.image-slider {
+    width: 100%;
+}
+
+.image-slider__wrapper {
+    justify-content: space-between;
+    padding: 0 0.5rem;
+}
+
+.image-slider .swiper-button-next {
+    display: block;
+    color: #887460;
+}
+
+.image-slider .swiper-button-prev {
+    display: block;
+    color: #887460;
+    top: 0;
+}
+
+.fill {
+    background-color: #887460;
+}
+
+div.more {
+    cursor: default;
+    margin-right: 1rem;
+}
+
+div.more button {
+    padding: 0.25rem 0 0;
+    border: none;
+    background: none;
+}
+
+.programs-button {
+    margin: 1rem 0rem 0rem auto;
+    width: 17rem;
+}
+
+.completed {
+    background-color: lightgray;
+}
+
+.programs-create {
+    margin-bottom: 4rem;
+}
+.programs-create h2 {
+    text-align: center;
+}
+    .programs-create h3 {
+        color: #887460;
+        text-align: left;
+    }
+
+.photo-program {
+    text-align: center;
+}
+
+    .photo-program img {
+        width: 24.22rem;
+        height: 14rem;
+    }
+.articles {
+    padding: 0 1.8rem;
+}
+.article {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 0.0625rem solid #000;
+}
+
+.article__content {
+    display: flex;
+}
+
+.article:last-child {
+    margin-bottom: 6rem;
+}
+
+.article__description {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 0.4rem;
+    width: 100%;
+}
+
+.article__text {
+    color: #7D7987;
+    line-height: 1.75rem;
+    padding-bottom: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.article .more {
+    position: absolute;
+    bottom: 0;
+    padding: 0.0625rem 1.25rem
+}
+
+.article__img {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.625rem 0;
+    margin-right: 1.5rem;
+    height: 14rem;
+    text-align: center;
+}
+
+    .article__img img {
+        height: 14rem;
+    }
+
+.article__description h3 {
+    color: #887460;
+    text-align: left;
+}
+
+.program-center {
+    width: 100%;
+    text-align: left
+}
+
+.program-center h3{
+    text-align: center;
+}
+
+.program-center .more {
+    right: 0;
+}
+.img-flag {
+    height: 28px;
+    width: 28px;
+    margin-right: 10px;
+}

@@ -1,0 +1,45 @@
+﻿@model TrainingsModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренировочные программы</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/TrainingPrograms/programs.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js"></script>
+    <script src="~/js/programs.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="articles">
+                @foreach (var trainingProgram in Model.TrainingsProgramsList)
+                {
+                    <div class="article">
+                        <div class="article__content">
+                            <div class="article__description program-center">
+                                <h3>Тренировочная программа “@trainingProgram.NameTrainingProgram”</h3>
+                                <p class="article__text">@trainingProgram.DescriptionTrainingProgram</p>
+                                <form asp-controller="TrainingPrograms" asp-action="ViewingTrainingPrograms" method="get" target="_blank" class="article-form">
+                                    <input type="hidden" name="trainingProgramID" value="@trainingProgram.IdTrainingProgram" />
+                                    <button type="submit" class="more">Просмотреть<img src="../img/icon.png" alt=""></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+
+</html>

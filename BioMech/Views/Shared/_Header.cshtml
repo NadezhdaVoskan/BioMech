@@ -1,0 +1,114 @@
+﻿<div class="container">
+    <header>
+        <div class="head__logo">
+            <a class="head__logo" asp-controller="Home" asp-action="Index">
+                <img src="~/img/head__foot/Логотип.png" alt="logo">
+                <h1>BioMech</h1>
+            </a>
+        </div>
+        <div class="nav">
+            <ul class="topmenu">
+                <li><a id="ind" asp-controller="home" asp-action="Index">Главная</a></li>
+                <li>
+                    <a id="art" asp-controller="articles" asp-action="Articles">Статьи</a>
+                    @if (Context.Session.GetString("Role") == "2")
+                    {
+                        <ul class="submenu submenu-articles">
+                            <li><a asp-controller="articles" asp-action="Articles">Опубликованные статьи</a></li>
+                            <li><a href="/articles/CreateArticles/">Создание статей</a></li>
+                            <li><a asp-controller="articles" asp-action="Archive">Архив статей</a></li>
+                            <li><a asp-controller="articles" asp-action="CreateCategories">Категории</a></li>
+                        </ul>
+                    }
+                </li>
+                <li>
+                    <a id="pro" asp-controller="trainingPrograms" asp-action="Programs">Программы</a>
+                    @if (Context.Session.GetString("Role") == "2")
+                    {
+                        <ul class="submenu submenu-articles">
+                            <li><a asp-controller="trainingPrograms" asp-action="Programs">Опубликованные видео</a></li>
+                            <li><a asp-controller="trainingPrograms" asp-action="CreatePrograms">Создание тренировок</a></li>
+                            <li><a asp-controller="trainingPrograms" asp-action="ArchivePrograms">Архив тренировок</a></li>
+                            <li><a asp-controller="trainingPrograms" asp-action="TrainingPrograms">Тренировочные программы</a></li>
+                        </ul>
+                    }
+                </li>
+                <li><a id="dia" asp-controller="diagnostics" asp-action="DiagnosticsDescription">Диагностика</a></li>
+                @if (Context.Session.GetString("UserEmail") == null)
+                {
+                    <li><a id="aut" asp-controller="authentication" asp-action="Authorization">Вход</a></li>
+                }
+                else
+                {
+                    <li>
+                        <a id="per" class="down" asp-controller="PersonalData" asp-action="PersonalAccount">Личный кабинет</a>
+                        <ul class="submenu">
+                            <li><a asp-controller="PersonalData" asp-action="Profile">Профиль</a></li>
+                            <li><a asp-controller="PersonalData" asp-action="PersonalAccount">Настройки</a></li>
+                            <li><a asp-controller="authentication" asp-action="ExitAccount" class="exed">Выйти из аккаунта</a></li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="mobile-navigation">
+            <div class="hamburger-lines" id="headerHamburger">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="header-menu" id="headerMenu">
+                <li><a id="ind" asp-controller="home" asp-action="Index">Главная</a></li>
+                @if (Context.Session.GetString("Role") == "2")
+                {
+                    <button class="button-active down" id="headerArticleSubmenu">
+                        Статьи
+                        <ul class="header-submenu">
+                            <li><a asp-controller="articles" asp-action="Articles">Опубликованные статьи</a></li>
+                            <li><a asp-controller="articles" asp-action="CreateArticles">Создание статей</a></li>
+                            <li><a asp-controller="articles" asp-action="Archive">Архив статей</a></li>
+                            <li><a asp-controller="articles" asp-action="CreateCategories">Категории</a></li>
+
+                        </ul>
+                    </button>
+                }
+                else
+                {
+                    <li><a id="art" asp-controller="articles" asp-action="Articles">Статьи</a></li>
+                }
+                @if (Context.Session.GetString("Role") == "2")
+                {
+                    <button class="button-active down" id="headerProgramSubmenu">
+                        Программы
+                        <ul class="header-submenu">
+                            <li><a asp-controller="trainingPrograms" asp-action="Programs">Опубликованные видео</a></li>
+                            <li><a asp-controller="trainingPrograms" asp-action="CreatePrograms">Создание тренировок</a></li>
+                            <li><a asp-controller="trainingPrograms" asp-action="ArchivePrograms">Архив тренировок</a></li>
+                            <li><a asp-controller="trainingPrograms" asp-action="TrainingPrograms">Тренировочные программы</a></li>
+                        </ul>
+                    </button>
+                }
+                else
+                {
+                    <li id="headerProgramSubmenu">
+                        <a id="pro" asp-controller="trainingPrograms" asp-action="Programs">Программы</a>
+                    </li>
+                }
+                <li id="headerDiagnosticsSubmenu">
+                    <a id="dia" asp-controller="diagnostics" asp-action="DiagnosticsDescription">Диагностика</a>
+                </li>
+                @if (Context.Session.GetString("UserEmail") == null)
+                {
+                    <li><a id="aut" asp-controller="authentication" asp-action="Authorization">Вход</a></li>
+                }
+                else
+                {
+                    <li><a asp-controller="PersonalData" asp-action="Profile">Профиль</a></li>
+                    <li><a asp-controller="PersonalData" asp-action="PersonalAccount">Настройки</a></li>
+                    <li><a asp-controller="authentication" asp-action="ExitAccount" class="exed">Выйти из аккаунта</a></li>
+                }
+            </ul>
+        </div>
+    </header>
+</div>
+

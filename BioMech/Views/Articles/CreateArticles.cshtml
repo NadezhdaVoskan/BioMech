@@ -1,0 +1,106 @@
+﻿@model ArticlesModel
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание и редактирование статьи</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="~/css/Articles/articles.css">
+    <link rel="stylesheet" href="~/css/Common/style.css">
+    <link href="~/node_modules/froala-editor/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="~/node_modules/froala-editor/js/froala_editor.pkgd.min.js" defer></script>
+    <script type="text/javascript" src="~/node_modules/froala-editor/js/plugins/inline_class.min.js" defer></script>
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js" defer></script>
+    <script src="~/js/Articles/articles.js" defer></script>
+    <script src="~/js/validation.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="container">
+
+            @{
+                var isEditing = Model.Articles.Any(); // Проверка, редактирование это или создание новой статьи
+                var article = Model.Articles.FirstOrDefault();
+            }
+
+            <form id="articleForm" action="/Articles/@(isEditing ? "UpdateArticle" : "CreateNewArticle")" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="idArticle" value="@Html.Raw(article?.IdArticle ?? 0)" />
+                <div class="articles">
+                    <div class="categories-create">
+                       
+                        <h2>Создание и редактирование статей</h2>
+                        <h3>Название статьи</h3>
+                        <div class="autorization-input top">
+                            <div class="autorization-field">
+                                <input name="nameArticle" data-required="true" value="@article?.Name_Article" required data-max-length="50" data-min-length="2" type="text">
+                            </div>
+                        </div>
+                        <h3>Краткое описание статьи</h3>
+                        <div class="autorization-input">
+                            <div class="autorization-field">
+                                <div class="autorization-field">
+                                    <textarea name="shortDescription" required data-required="true" data-max-length="1000" data-min-length="10" rows="4">@article?.ShortDescriptionArticle</textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                        <h3>Категория статьи</h3>
+                        <div class="autorization-input top">
+                            <div class="box">
+                                <select name="articleCategoryId" id="articleCategoryId" required data-required="true">
+                                    @foreach (var category in Model.ArticlesCategory)
+                                    {
+                                        <option value="@category.IdArticleCategory">@category.NameArticleCategory</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <h3>Обложка статьи</h3>
+                        <div class="photo">
+
+                            <div class="photo__ava" id="photo__ava">
+                                @if (@article?.Image_Article != null)
+                            {
+                                    <img src="@article?.Image_Article" alt="Profile Photo" />
+                            }
+                            else
+                            {
+                                <img src="~/img/articles/articles.svg" id="photoProfile" />
+                            }
+                            </div>
+                            <div class="photo__action">
+                                <input type="file" name="articlePhoto" id="file" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="articles">
+                    <div class="categories-editing">
+                        <h2>Содержание страницы</h2>
+                        <div id="example"></div>
+                        <input type="hidden" name="htmlContent" id="htmlContent">
+                        <input type="hidden" name="contentUrl" id="contentUrl" value="@article?.ContentAtricle" />
+                        <div class="categories-button">
+                            <button type="submit" class="PD__button">Сохранить и опубликовать статью</button>
+                        </div>
+                        <div class="categories-button">
+                            <input type="hidden" name="isEditing" value="@isEditing.ToString().ToLower()" />
+                            <button type="button" class="PD__button" onclick="archiveArticle()">Сохранить в архив</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+
+</html>

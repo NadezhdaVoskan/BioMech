@@ -1,0 +1,203 @@
+﻿.indent {
+    padding: 0.825rem 0 !important
+}
+
+.indent .more {
+    margin-top: 0.5rem;
+    float: right;
+}
+
+.indent img {
+    height: 40%;
+    width: 40%;
+}
+
+.indent .small {
+    width: 25%;
+    height: 25%;
+}
+
+.indent .big {
+    height: 60%;
+    width: 60%;
+}
+
+.diagnostics-flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem
+}
+
+    .diagnostics-flex img {
+        display: block;
+        margin-right: 1rem;
+    }
+
+.diagnostics__text,
+.list li {
+    font-size: 1rem;
+    color: #8E7D6D;
+    line-height: 1.75rem
+}
+
+.list {
+    margin-left: 1rem;
+}
+
+    .list ul {
+        list-style: inside;
+    }
+
+
+.top {
+    margin-top: 2.5rem;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.text-bottom .diagnostics__text {
+    margin-bottom: 1rem;
+}
+
+.text-bottom .diagnostics__text:last-child {
+    margin-bottom: 0rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.modalDiagnostics {
+    width: 60rem;
+    height: 30rem;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0 14rem #000, 0 0 0 62rem rgba(0, 0, 0, 0.3);
+}
+
+.modalCenter {
+    position: relative;
+    padding-top: 0.25rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.modalCenter h2 {
+    margin: 0;
+}
+
+.modal__img {
+    margin: 1rem 0;
+}
+
+.modal__img img {
+    height: 18rem;
+}
+
+.modalDiagnostics .buttons {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.modalDiagnostics button {
+    justify-content: center;
+    width: 14rem;
+    margin-bottom: 0.5rem;
+}
+    .modalDiagnostics button:last-child {
+        margin-bottom: 0rem;
+    }
+
+.close-btn {
+    position: absolute;
+    top: 0.6125rem;
+    right: 2.25rem;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1499
+}
+
+
+.progress {
+    position: relative;
+    height: 2rem;
+    width: 22rem;
+    border-radius: 1rem;
+    background: #E9E9E9;
+}
+
+.progress__true {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #43AC5A;
+    width: 0%;
+    border-radius: 1rem;
+}
+.progress__info {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+
+.image-slider {
+    padding: 0 0 5rem;
+    width: 100%;
+}
+
+.image-slider__wrapper {
+    padding: 0 ;
+}
+
+.image-slider__slide img {
+    width: auto;
+}
+
+.image-slider__image {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.image-slider__image img {
+    height: 16rem;
+}
+
+.image-slider .swiper-pagination {
+    top: 19rem;
+}
+
+.image-slider .swiper-pagination-bullet {
+    width: 0.75rem;
+    height: 0.75rem;
+    line-height: 0.75rem;
+    background-color: #887460
+}
+.image-slider .swiper-button-next {
+    color: #887460
+}
+.image-slider .swiper-button-prev {
+    color: #887460
+}

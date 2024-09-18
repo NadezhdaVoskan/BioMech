@@ -1,0 +1,64 @@
+﻿@model ProfileModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История диагностики</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/PersonalData/profile.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/js/Common/clickActive.js" defer></script>
+  
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="modal" id="confirmModal" style="display:none;">
+            <div>
+                <p>Вы уверены, что хотите удалить данную фотографию?</p>
+                <div class="modalButton">
+                    <button id="yesBtn" class="button">Да</button>
+                    <button id="noBtn" class="button">Нет</button>
+                </div>
+            </div>
+        </div>
+        <div class="result-photo-big" id="resultPhotoBig" style="display: none;">
+            <div class="result-block-big-img">
+                <div class="close-btn">&times;</div>
+                <div class="result-photo-big-img" id="bigImg"></div>
+            </div>
+        </div>
+        @Html.Partial("_Header")
+        <div class="container">
+            <div class="profile">
+                <h2>Выполненные диагностики в<br />категории «@Model.CategoryName»</h2>
+                <div class="profile__button-remove">
+                    <button id="clearDiagnosticHistoryBtn" type="submit" class="PD__button">Очистить историю диагностик</button>
+                </div>
+
+                <div class="results__diagnostics">
+                    @foreach (var result in Model.PhotoDiagnostic)
+                    {
+                        <div class="result" id="resultBlock" data-photo-id="@result.IdPhotoDiagnostic">
+                            <img src="@result.Photo" id="resultPhoto" />
+                            <div class="remove">&times;</div>
+                            <p class="result__data">@result.DateDownload.ToString("dd.MM.yyyy")</p>
+                            <p>@(Model.DiagnosticsProblems.ContainsKey(result.ProblemCategoryId) ? Model.DiagnosticsProblems[result.ProblemCategoryId] : "Нет категории")</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+    <script src="~/js/profileDiagnosticResult.js" defer></script>
+</body>
+
+</html>

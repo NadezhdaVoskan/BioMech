@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Диагностики</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Diagnostics/diagnostic.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="head">
+            @Html.Partial("_Header")
+        </div>
+        <div class="definitions">
+            <div class="container">
+                <div class="biomechanics">
+                    <h2>Диагностика проблем с телом и движением</h2>
+                    <div class="biomech__img">
+                        <img src="../img/diagnostics/robot__diagnostics.png" alt="">
+                    </div>
+                    <p class="bio__text">
+                        Добро пожаловать на страницу диагностики вашего здоровья и физической формы! Здесь
+                        вы можете провести тщательную проверку различных частей вашего тела, чтобы лучше понять его
+                        состояние и обнаружить возможные дисбалансы.<br>
+                        Исследуйте каждую часть вашего тела, получив детальные рекомендации о его состоянии. Наши инструкции
+                        помогут вам провести самодиагностику, обращая внимание на особенности каждой зоны.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="indent">
+                <div class="dia__items">
+                    <h2>Диагностика в несколько шагов</h2>
+                    <div class="diagnostics">
+                        <img class="dia__img two" src="../img/diagnostics/image 4.png" alt="">
+                        <div class="dia first">
+                            <h4>Лопатки</h4>
+                            <p class="dia__text">
+                                Лопатки – ключевой элемент правильной осанки и здоровья спины. Оцените их
+                                положение, обратите внимание на симметрию и возможные дисбалансы. После диагностики вы
+                                получите
+                                рекомендации по улучшению положения лопаток, что способствует снижению напряжения в области
+                                спины и укреплению корпуса.
+                            </p>
+                            <form action="#" method="get" target="_blank">
+                                <button asp-controller="diagnostics" asp-action="DiagnosticsBlade" type="submit" class="more">Начать диагностику<img src="../img/icon.png" alt=""></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="diagnostics">
+                        <img class="dia__img first" src="../img/diagnostics/image 6.png" alt="">
+                        <div class="dia two">
+                            <h4>Колени</h4>
+                            <p class="dia__text">
+                                Колени – соединение нижних и верхних конечностей, требующее особенного
+                                внимания. Оцените положение коленных суставов, исключив возможные деформации или
+                                неправильные
+                                углы. Диагностика поможет выявить факторы риска и предложит практические рекомендации для
+                                улучшения структуры и функциональности колен.
+                            </p>
+                            <form action="#" method="get" target="_blank">
+                                <button asp-controller="diagnostics" asp-action="DiagnosticsKnees" type="submit" class="more">Начать диагностику<img src="../img/icon.png" alt=""></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="diagnostics">
+                        <img class="dia__img two" src="../img/diagnostics/image 3.png" alt="">
+                        <div class="dia first">
+                            <h4>Стопы</h4>
+                            <p class="dia__text">
+                                Стопы – фундамент вашей поддержки и движения. Проверьте их выравнивание,
+                                арки и
+                                распределение веса. Наблюдайте за возможными признаками плоскостопия или неправильного
+                                положения
+                                стоп. Диагностика позволит выявить потенциальные проблемы и предоставит практические советы
+                                по
+                                коррекции, способствуя улучшению общей структуры вашего тела и снижению нагрузки на суставы.
+                            </p>
+                            <form action="#" method="get" target="_blank">
+                                <button asp-controller="diagnostics" asp-action="DiagnosticsFeet" type="submit" class="more">Начать диагностику<img src="../img/icon.png" alt=""></button>
+                            </form>
+                        </div>
+                    </div>
+                    @* <div class="diagnostics">
+                    <img class="dia__img first" src="../img/diagnostics/image 7.png" alt="">
+                    <div class="dia two">
+                    <h4>Грудной и поясничный отделы</h4>
+                    <p class="dia__text">
+                    Грудной и поясничный отделы позвоночника – ключевые зоны, от которых
+                    зависит
+                    общая поддержка тела. Оцените их кривизну, поискав признаки сколиоза или гиперлордоза.
+                    Диагностика поможет выявить и корректировать неравномерности, предлагая эффективные
+                    упражнения
+                    для укрепления мышц и поддержания правильной позы.
+                    </p>
+                    <form action="#" method="get" target="_blank">
+                    <button asp-controller="diagnostics" asp-action="DiagnosticsBody" type="submit" class="more">Начать диагностику<img src="../img/icon.png" alt=""></button>
+                    </form>
+                    </div> *@
+                </div>
+                <div class="diagnostics">
+                    <img class="dia__img first" src="../img/diagnostics/image 8.png" alt="">
+                    <div class="dia two">
+                        <h4>Положение головы и шеи</h4>
+                        <p class="dia__text">
+                            Правильное положение головы и шеи – залог здоровья шейного отдела
+                            позвоночника
+                            и профилактика многих проблем. Оцените свою осанку, обращая внимание на выступание головы
+                            вперед
+                            или назад. Диагностика подскажет, как корректировать положение для уменьшения напряжения в
+                            шейных мышцах и предотвращения болевых ощущений.
+                        </p>
+                        <form action="#" method="get" target="_blank">
+                            <button asp-controller="diagnostics" asp-action="DiagnosticsNeck" type="submit" class="more">Начать диагностику<img src="../img/icon.png" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @* <div class="run">
+            <h2>Диагностика движения</h2>
+            <div class="run__img">
+            <img src="../img/diagnostics/image 9.png" alt="">
+            <img src="../img/diagnostics/image 10.png" alt="">
+            </div>
+            <p class="run__text">
+            Проверьте себя, выполняя различные упражнения, предназначенные для улучшения вашей
+            физической формы. Загрузите фотографии или видео своих тренировок, и мы предоставим индивидуальные
+            рекомендации для достижения лучших результатов.
+            </p>
+            <form action="#" method="get" target="_blank">
+            <button type="submit" class="more">Начать диагностику<img src="../img/icon.png" alt=""></button>
+            </form>
+            </div> *@
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+
+</body>
+
+</html>

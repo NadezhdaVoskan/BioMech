@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Authentication/entrance.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/validation.js" defer></script>
+    <script src="~/js/authorization.js" defer></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        <div class="autorization">
+            <img src="../img/authorization/Untitled 1.png" class="auto__img" alt="">
+            <div class="autorization__block">
+                <h3 class="h-brown h-left">Авторизация</h3>
+                <div class="auto__descriptiont">
+                    <p class="autorization-text">Нет аккаунта?</p>
+                    <a asp-controller="authentication" asp-action="Registration" class="autorization-text">Зарегистрироваться</a>
+                </div>
+                <form class="form" method="post" id="add-form">
+                    @Html.AntiForgeryToken()
+                    <div class="autorization-input">
+                        <div class="autorization-field">
+                            <input data-email="true" name="email" type="text" placeholder="Элетронная почта">
+                        </div>
+                    </div>
+                    <div class="autorization-input">
+                        <div class="autorization-field password">
+                            <input data-password="true" name="password" id="passwordOne" type="password" placeholder="Пароль">
+                            <button class="checkPassword password-control" type="button" onclick="return show_hide_password(this);"><img src="../img/authorization/ic_eye.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="autorization-text">
+                        <a class="autorization-text" asp-controller="authentication" asp-action="Forgot">Забыл пароль?</a>
+                    </div>
+                    <button type="submit" class="autorization-btn" id="autorizationButton">Авторизоваться</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</body>
+
+</html>

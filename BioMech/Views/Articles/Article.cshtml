@@ -1,0 +1,29 @@
+﻿@model BioMech.Models.Article
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статья</title>
+    <link rel="icon" href="/img/head__foot/Логотип.png">
+    <link rel="stylesheet" href="../css/Articles/article.css">
+    <link rel="stylesheet" href="../css/Common/style.css">
+    <script src="~/js/Common/clickActive.js" defer></script>
+    <script src="~/js/Common/scroll.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        @Html.Partial("_Header")
+
+        <div class="container">
+            @Html.Raw(Model.ContentAtricle)
+        </div>
+
+        @Html.Partial("_Footer")
+    </div>
+</body>
+
+</html>
